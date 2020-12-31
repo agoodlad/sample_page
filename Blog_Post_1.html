@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+
+
+</head>
+<body>
+
+<h1>What is a Proper Class and Why is it not a Set?</h1>
+
+<h2>TFW Not Everything is a Set...</h2>
+
+<p>
+This post goes out to the aspiring mathematician who comes to painful terms with the unfortunate reality that the god of set theory was not benevolent enough to give us a set for everything in the world of math.
+<br><br>
+Everyone delving into theoretical math has this awkward moment when they hear that this thing that looks like a set, acts like a set, and even <i>smells</i> like a set, somehow isn't a set. And when that happens, consequences could be very severe. Symptoms include headaches, nausia, and considering a switch in majors!
+<br><br>
+But not to worry. There is a cure. This blog post will seek to remedy your confusion with a concise explanation as to what proper classes are and why they're not sets. And don't worry, it doesn't involve any long-winded lectures about axiomatic set theory or anything that fancy (although be warned we <i>do</i> use a bit of informal logic). It just puts foundational mathematical concepts in context.
+</p>
+
+<h2>What Language is Math Again?</h2>
+
+<p>
+Math is the universal language! But what <i>is</i> that universal language, anyway? Part of the problem is we often talk about math in the english language instead of the standard <i>mathematical</i> one. Talking about math in spoken language unfortunately leads to problems as old as philosophy itself! So let's fix that by <i>rigorously defining </i> the mathematical language we're working with.
+</p>
+
+<p>
+<b>Defintion.</b> Note that there are many ways to construct a mathematical language. But the one that most theoretical mathematicians "use" instinctively is what is called the <b>Language of Sets</b>. Note that this language is a specific instance of a "First Order Language", but the general context in the field of Mathematical Logic is unimportant; only the language itself.
+<br><br>
+The Language of Sets contains the following symbols:
+<br><br>
+<b>Parentheses</b>: These symbols $)$, $($ (not to be confused with parenthesis in the english language) are "just there" to ensure that our language is defined elegantly. You'll thank me later!
+<br><br>
+<b>Set Variables</b>: There are countably infinite such objects $x_1, x_2, \dots, x_n, \dots$ that represent sets that to which we refer in our language.
+<br><br>
+<b>Binary Relation Symbols</b>: These include $\in$ and $=$. These symbolize the binary relations that we use in the language of sets.
+<br><br>
+<b>Connectives</b>: These connect phrases together, just as "and", "or", "with", etc. connect phrases together in the english language. Here we have the single <b>Unary Connective</b> "not" $\neg$. We also have the <b>Binary Connectives</b>, which include the "and" connective $\land$, the "or" connective $\lor$, the "implies" connective $\rightarrow$.
+<br><br>
+<b>Quantifiers</b>: These quantify our set variables just as quantifiers in the english language quantify objects. We have the "there exists" quantifier $\exists$ and the "for all" quantifier $\forall$.
+<br><br>
+Now we want to have strings of symbols that constitute "formulas". Just any old string of symbols in any old language is <i>gobletygook</i>. But when the string follows a precise criteria, then we have a formula. A <b>formula</b> is a string of symbols $\phi$ that meets one of the following criteria (note the recursive nature of this criteria):
+<br><br>
+1. $\phi$ is $x=y$ or $x \in y$, where $x$ and $y$ are set variables.
+<br><br>
+2. $\alpha$ is a formula and $\phi$ is $\neg(\alpha)$ (where $\neg(\alpha)$ is simply the string of "$\neg($" followed by "$\alpha$" followed by "$)$").
+<br><br>
+3. $\alpha, \beta$ are formulas and $\phi$ is $(\alpha) \land (\beta)$, $(\alpha) \lor (\beta)$, or $(\alpha) \rightarrow (\beta)$ (where given a binary connective $\diamond$, $(\alpha) \diamond (\beta)$ is simply the string of "$(\alpha)$" followed by "$\diamond$" followed by "$(\beta)$").
+<br><br>
+4. $\alpha$ is a formula and $\phi$ is $\exists x(\alpha)$ or $\forall x(\alpha)$, where $x$ is a set variable. $\triangle$
+</p>
+
+<p>
+Annoyed by the parentheses? Well as I implied before, they serve a subtle, important purpose. For example, when you see something like
+$$x \in y \rightarrow \neg x=y \land \neg y \in x,$$
+it's ambiguous <i>what exactly</i> the connectives are connecting. We could have
+$$(x \in y) \rightarrow ((\neg (x=y)) \land (\neg (y \in x))),$$
+$$((x \in y) \rightarrow (\neg (x=y))) \land (\neg (y \in x)),$$
+$$(x \in y) \rightarrow (\neg ((x=y) \land (\neg (y \in x)))),$$
+and a range of other possibilities! Parenthesis clear that ambiguity...once your eyes sort them out. I know parentheses get really tedious really fast, but try prefix notation $$\rightarrow \in xy \land \neg=xy \neg \in yx,$$
+which is more standardly used in this definition to sort out the ambiguity. Yeah...I thought so! I told you you'd thank me later! I think my choice of formalization makes life easier, but to make life even easier, we shall not use parentheses to denote a sentence when the specific formula in question is clear in context.
+</p>
+
+<h2><i>Using</i> the Language</h2>
+
+<p>
+Now that we've gotten through the dull and tedious part of <i>defining</i> the language of set theory, we get to the fun part! Actually <i>using</i> it for its purpose--which is to make statements about sets. For example, take the formula $\forall x (x=x)$. That formula says "every set $x$ equals itself". This example is simple (correction: VERY simple!), but actually important in practice, since it is in fact a universal truth that a set $x$ equals itself, but let's not get ahead of ourselves.
+<br><br>
+Although this language is <i>fundamentally</i> simple (in the sense that all it took to define it were parentheses, set variables, connectives, quantifiers, and only <i>two</i> relation symbols), it's literally <i>all</i> we need to denote <i>any</i> mathematical statement we want. It may not seem like it at first, but other constructions like subsets, functions, and even the real numbers and their operations, can be talked about using entirely this language!
+<br><br>
+While we can do this amazing thing, it is a real pain to decipher, let alone <i>write</i>, mathematical formulas entirely in terms of "$=$" and "$\in$". And that's why we do what we always do when we define notation and make <i>shortcuts</i> for ourselves. We shall start with the symbols $\neq$, $\notin$, $\subset$, and $\not \subset$. Define these shortcuts as follows:
+$$x \neq y \text{ as } \neg x=y$$
+$$x \notin y \text{ as } \neg x \in y$$
+$$x \subset y \text{ as } \forall z(z \in x \rightarrow z \in y)$$
+$$x \not \subset y \text{ as } \neg x \subset y$$
+$$\forall(x \in y)\phi(x) \text{ as } \forall x(x \in y \rightarrow \phi(x))$$
+Note that we can make shortcuts to denote other set theoretic objects and operations such as unions, complements, intersections, products, functions, etc. The exact details of defining the shortcut, however, are very technical and deviate from the focus of this article. Thus, we shall leave them out and move on to directly answering our question in the final section.
+</p>
+
+<h2>What is a Class?</h2>
+
+<p>
+Now we shall do what is promised and define a class. But first, we need one preliminary definition (I swear! It's the last one, I promise!).
+</p>
+
+<p>
+<b>Definition.</b> A variable $x$ that appears in a given formula $\phi$ is <b>free</b> if there there are no quantifiers that quantify over that formula. This gives rise to a new convention where we denote a formula $\phi$ as $\phi(x_1, \dots, x_n)$, where $x_1, \dots, x_n$ are <i>precisely</i> all the free variables that appear in that formula.
+</p>
+
+<p>
+And finally, our prize! We can define a class in an actually accessible way!
+</p>
+
+<p>
+<b>Definition.</b> A <b>class</b> is a formula $\phi(x)$ with only one free variable. We say that a set $A$ is contained in a class $\phi(x)$, and write $A \in \phi(x)$, if the statement about $A$ that we get from replacing all appearences of $x$ with $A$ in the formula $\phi(x)$ is true.
+</p>
+
+<p>
+Well THAT was anticlimactic! Not what you were expecting was it. You were expecting something a little more <i>long-winded</i>, weren't you. Well too bad a class is easier to define than you think...once you understand the nature of the set theoretical language that set theoretic math lives in. The idea is that in math, we have sets, and our language makes predicate statements (i.e. the formulas defined before) about sets. Sometimes the collection of every set in a class does itself form a set. But this can't always be true. This is the mistake that naive set theory makes when we assume that any collection of objects that fit the criteria of a class is a set. This leads to paradoxes such as Russel's and Cantor's paradox. As a result, not everything is a set.
+<br><br>
+<!-- Move rule of thumb statement to the end -->A good rule of thumb to determine whether a class $\phi(x)$ also forms a set is to assume the collection of all sets that follow $\phi(x)$ is a set, and if we get a contradiction, then it's not a set. Got it? A class that does not form a set is given the infamous name <b>proper class</b>. It's necessary to either have proper classes, or the <i>idea</i> of them embedded in the language of set theory, because some of the most important statements about sets very unfortunately cannot be sets. Examples of this include the following:
+<br><br>
+1. The so-called "universal set", which in spite of its name is really NOT a set, and is the class formulated by $x=x$ (since <i>every</i> set is equal to itself).
+<br><br>
+2. The class of all ordinal numbers, which is an extension of the natural numbers that becomes very important in theoretical mathematics. The basic idea is that an ordinal number system is a number system with a minimum number $0$ closed not only under successors, but taking the supremum, which is to say $sup(\mathbb{N})$ exists, and is often denoted $\omega$. This can be simply stated (relatively speaking) in terms of the language of sets by exploiting the fact that so-called transfinite induction is <i>equivalent</i> to the well-ordering of $\in$ on a given set. Hence the class of ordinals is formulated as follows (and for future reference, we shall denote this specific formula as $ON(x)$):
+$$\forall(y \in x)(y \subset x) \land \forall(y \in x)(y \notin y) \land \forall(y \in x)\forall(z \in x)(y \in z \rightarrow z \notin y) \land  \forall(y \in x)\forall(z \in x)(y=z \lor y \in z \lor z \in y) \land \forall y(y \subset x \rightarrow \exists(m \in y)\forall(z \in y)(z \notin m)),$$
+A little long, I know, but at least the formula's short enough to actually be stated, without cheating, within the width of this webpage! The same cannot be said for this final example.
+<br><br>
+3. Finally, we have the class of all cardinals numbers. You get the sense that cardinal numbers are the "equivalence classes" of all sets that have the same cardinality, except newsflash: The class of all cardinalities is not a set! So we have to formalize it in the less intuitive sense of an ordinal number with certain properties. Since every set has the same cardinality as an ordinal (fun fact that I will definitely NOT prove!), we can formalize this in terms of just taking the ordinal with greater cardinality than every ordinal before it. In other words, a cardinal number is an ordinal number $\alpha$ such that, for every ordinal $\beta \in \alpha$, there exists an injection $f \colon \beta \to \alpha$ but no bijection. We denote the property of injection but no bijection existance between sets $A, B$ as $A \prec B$. Instead of going through the effort of formalizing $\prec$ in terms of the set theoretic language, I will just let you take it in good faith in stating that such a formalization exists. The class of all cardinals is then denoted by the formula $ON(x) \land \forall(y \in x)(ON(y) \rightarrow y \prec x)$.
+<br><br>
+<!-- If you think along those lines, then you can work pretty well with Of course, life is not that simple. We haven't even <i>started</i> discussing the axiomatic set theory -->
+</p>
+
+</body>
+</html>
